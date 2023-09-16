@@ -1,0 +1,11 @@
+[Unit]
+Description=PowerModes service
+
+[Service]
+ExecStart=/usr/lib/systemd/scripts/powermodes
+User=root
+Group=root
+
+[Install]
+Also=powermodes.path
+WantedBy=multi-user.target

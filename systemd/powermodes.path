@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for changes in powermode
+
+[Path]
+PathChanged=/opt/powermodes/mode
+
+[Install]
+WantedBy=multi-user.target
