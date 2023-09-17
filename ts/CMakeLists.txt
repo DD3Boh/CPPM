@@ -1,4 +1,4 @@
-set(TS_FILES powermodes-2_en_US.ts)
+set(TS_FILES powermodes_en_US.ts)
 
 set(PROJECT_SOURCES
     ${TS_FILES}
