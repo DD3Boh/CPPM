@@ -3,6 +3,7 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        powermode.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -24,6 +25,7 @@ else()
     else()
         add_executable(powermodes
             ${PROJECT_SOURCES}
+            powermode.h
         )
     endif()
 endif()
