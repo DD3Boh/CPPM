@@ -6,23 +6,23 @@ else
 	mode="2"
 fi
 
-cores=$(nproc)
+cores=$(nproc --ignore=1)
 
 case "$mode" in
 	"1")
-		for policy in {0..$cores}; do
+		for ((policy = 0; policy <= $cores; policy++)); do
 		echo "powersave" > "/sys/devices/system/cpu/cpufreq/policy$policy/scaling_governor"
 		done
 		;;
 
 	"2")
-		for policy in {0..$cores}; do
+		for ((policy = 0; policy <= $cores; policy++)); do
 		echo "schedutil" > "/sys/devices/system/cpu/cpufreq/policy$policy/scaling_governor"
 		done
 		;;
 
 	"3")
-		for policy in {0..$cores}; do
+		for ((policy = 0; policy <= $cores; policy++)); do
 		echo "performance" > "/sys/devices/system/cpu/cpufreq/policy$policy/scaling_governor"
 		done
 		;;
