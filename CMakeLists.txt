@@ -4,7 +4,7 @@
 #  SPDX-License-Identifier: LGPL-2.1-or-later
 #
 
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
 project(powermodes VERSION 0.1 LANGUAGES CXX)
 
