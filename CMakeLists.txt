@@ -1,3 +1,9 @@
+#
+#  SPDX-FileCopyrightText 2023 Davide Garberi <dade.garberi@gmail.com>
+#
+#  SPDX-License-Identifier: LGPL-2.1-or-later
+#
+
 cmake_minimum_required(VERSION 3.5)
 
 project(powermodes VERSION 0.1 LANGUAGES CXX)
