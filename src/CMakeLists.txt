@@ -6,6 +6,7 @@
 
 add_subdirectory(powermode)
 add_subdirectory(app)
+add_subdirectory(plasma)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(powermodes

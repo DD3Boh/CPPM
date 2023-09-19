@@ -1,0 +1,24 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "dade.garberi@gmail.com",
+                "Name": "Davide Garberi"
+            }
+        ],
+        "Category": "System Information",
+        "Description": "Custom made power profiles switcher",
+        "Icon": "battery-full",
+        "Id": "plasma.custom.powermodes",
+        "License": "LGPL-2.1+",
+        "Name": "powermodes",
+        "Version": "1.0",
+        "Website": "https://plasma.kde.org/"
+    },
+    "X-KDE-Keywords": "Power,powermodes,powerprofiles",
+    "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-MainScript": "ui/main.qml",
+    "X-Plasma-NotificationArea": "true",
+    "X-Plasma-NotificationAreaCategory": "Hardware"
+}
