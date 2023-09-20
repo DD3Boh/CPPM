@@ -39,7 +39,7 @@ void PowerMode::setPowerMode(int value)
     modeFile.close();
 }
 
-const int PowerMode::getMode()
+int PowerMode::getMode() const
 {
     return p_mode;
 }

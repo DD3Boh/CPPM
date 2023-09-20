@@ -16,9 +16,7 @@ class PowerMode : public QObject
 
 public:
     PowerMode();
-    const int getMode();
-
-public slots:
+    int getMode() const;
     void setPowerMode(int value);
 
 private:
