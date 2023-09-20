@@ -16,17 +16,11 @@ enum {
     MODE_PERFORMANCE
 };
 
-PowerMode::PowerMode()
-{
-    p_mode = readFileValue();
-}
-
 void PowerMode::setPowerMode(int value)
 {
     QFile modeFile = QFile(filePath);
     bool ok;
-    p_mode = value;
-    std::string s = std::to_string(p_mode);
+    std::string s = std::to_string(value);
     char const *pchar = s.c_str();
 
     modeFile.open(QIODevice::WriteOnly);
@@ -39,12 +33,7 @@ void PowerMode::setPowerMode(int value)
     modeFile.close();
 }
 
-int PowerMode::getMode() const
-{
-    return p_mode;
-}
-
-int PowerMode::readFileValue()
+int PowerMode::getPowerMode()
 {
     QFile modeFile = QFile(filePath);
     bool ok;

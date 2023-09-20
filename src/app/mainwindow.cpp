@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->horizontalSlider->setSliderPosition(powermode.getMode());
+    ui->horizontalSlider->setSliderPosition(powermode.getPowerMode());
 
     connect(ui->horizontalSlider, &QAbstractSlider::valueChanged, &powermode, &PowerMode::setPowerMode);
 }

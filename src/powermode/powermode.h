@@ -15,13 +15,9 @@ class PowerMode : public QObject
     Q_OBJECT
 
 public:
-    PowerMode();
-    int getMode() const;
+    PowerMode() { };
+    int getPowerMode();
     void setPowerMode(int value);
-
-private:
-    int p_mode;
-    int readFileValue();
 };
 
 #endif // POWERMODE_H
