@@ -33,4 +33,5 @@ kcoreaddons_add_plugin(plasma.custom.powermodes SOURCES ${powermodes_SRCS} INSTA
 target_link_libraries(plasma.custom.powermodes
                       Qt5::Gui
                       KF5::Plasma
-                      KF5::I18n)
+                      KF5::I18n
+                      powermode)
