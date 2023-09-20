@@ -11,6 +11,6 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
-add_library(mainapp ${PROJECT_SOURCES})
+add_library(mainapp STATIC ${PROJECT_SOURCES})
 
 target_link_libraries(mainapp PRIVATE Qt${QT_VERSION_MAJOR}::Widgets powermode)
