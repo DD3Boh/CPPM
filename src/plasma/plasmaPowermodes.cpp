@@ -17,6 +17,11 @@ plasmaPowermodes::~plasmaPowermodes()
 {
 }
 
+int plasmaPowermodes::getPowerMode()
+{
+    return powermode.getPowerMode();
+}
+
 K_PLUGIN_CLASS(plasmaPowermodes)
 
 #include "plasmaPowermodes.moc"

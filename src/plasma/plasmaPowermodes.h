@@ -8,6 +8,7 @@
 #define PLASMA_POWERMODES_H
 
 #include <Plasma/Applet>
+#include "powermode.h"
 
 class plasmaPowermodes : public Plasma::Applet
 {
@@ -16,6 +17,10 @@ class plasmaPowermodes : public Plasma::Applet
 public:
     explicit plasmaPowermodes(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~plasmaPowermodes();
+    Q_INVOKABLE int getPowerMode();
+
+private:
+    PowerMode powermode;
 };
 
 #endif

@@ -18,6 +18,14 @@ Item {
     Plasmoid.fullRepresentation: ColumnLayout {
         anchors.fill: parent
         spacing: 0
+        property int val: 0
+
+        Connections {
+            Plasmoid.onExpandedChanged: {
+                if (Plasmoid.expanded)
+                    val = Plasmoid.nativeInterface.getPowerMode()
+            }
+        }
 
         RowLayout {
             Layout.rightMargin: 40
@@ -37,7 +45,7 @@ Item {
                 Layout.fillWidth: true
                 from: 1
                 to: 3
-                value: 2
+                value: val
                 stepSize: 1
             }
         }
