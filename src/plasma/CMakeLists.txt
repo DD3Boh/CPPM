@@ -1,3 +1,9 @@
+#
+#  SPDX-FileCopyrightText 2023 Davide Garberi <dade.garberi@gmail.com>
+#
+#  SPDX-License-Identifier: LGPL-2.1-or-later
+#
+
 set(QT_MIN_VERSION "5.15.2")
 set(KF5_MIN_VERSION "5.93.0")
 
