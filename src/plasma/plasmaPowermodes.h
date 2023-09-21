@@ -4,8 +4,7 @@
  *   SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
-#ifndef PLASMA_POWERMODES_H
-#define PLASMA_POWERMODES_H
+#pragma once
 
 #include <Plasma/Applet>
 #include "powermode.h"
@@ -22,5 +21,3 @@ public:
 private:
     PowerMode powermode;
 };
-
-#endif

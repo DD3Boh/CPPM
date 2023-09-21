@@ -4,8 +4,7 @@
  *  SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
-#ifndef POWERMODE_H
-#define POWERMODE_H
+#pragma once
 
 #include <QObject>
 #include <QDebug>
@@ -19,5 +18,3 @@ public:
     int getPowerMode();
     void setPowerMode(int value);
 };
-
-#endif // POWERMODE_H
