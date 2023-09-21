@@ -23,3 +23,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 add_subdirectory(src)
 add_subdirectory(systemd)
 add_subdirectory(ts)
+
+# CPack
+set(CPACK_GENERATOR "TGZ")
+set(CPACK_PACKAGE_NAME "CPPM")
+set(CPACK_PACKAGE_VERSION "0.1")
+set(CPACK_PACKAGE_VENDOR "DD3Boh")
+set(CPACK_PACKAGE_DESCRIPTION "Custom Power Profiles Manager (CPPM)")
+set(CPACK_PACKAGE_CONTACT "dade.garberi@gmail.com")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+
+include(CPack)
