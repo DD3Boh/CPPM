@@ -17,6 +17,7 @@ public:
     explicit plasmaPowermodes(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~plasmaPowermodes();
     Q_INVOKABLE int getPowerMode();
+    Q_INVOKABLE void setPowerMode(int value);
 
 private:
     PowerMode powermode;

@@ -47,6 +47,9 @@ Item {
                 to: 3
                 value: val
                 stepSize: 1
+
+                onMoved:
+                    Plasmoid.nativeInterface.setPowerMode(slider.value)
             }
         }
 
