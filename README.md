@@ -2,11 +2,11 @@
 
 Custom Power Profiles Manager (CPPM) - Qt based GUI program to handle user made power profiles
 
-## Install
+## Install from source
 Run the install script:
 
 ```
-$ ./scripts/install.sh
+$ ./scripts/build-install.sh
 ```
 
 Enable the systemd entry:
@@ -21,11 +21,11 @@ If you want to start the service without rebooting, you need to start both the s
 $ systemctl start cppm.service cppm.path
 ```
 
-## Uninstall
+## Uninstall from source
 Run the uninstall script:
 
 ```
-$ ./scripts/uninstall.sh
+$ ./scripts/build-uninstall.sh
 ```
 
 The systemd entries will be automatically stopped and disabled, and the profile will be re-set to balanced.
