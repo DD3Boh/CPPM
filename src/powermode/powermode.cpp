@@ -10,8 +10,7 @@
 #define filePath "/opt/cppm/mode"
 
 enum {
-    MODE_INVALID = 0,
-    MODE_POWERSAVE,
+    MODE_POWERSAVE = 1,
     MODE_BALANCED,
     MODE_PERFORMANCE
 };
@@ -37,18 +36,18 @@ int PowerMode::getPowerMode()
 {
     QFile modeFile = QFile(filePath);
     bool ok;
-    int rc = MODE_INVALID;
+    int rc = MODE_BALANCED;
 
     if (modeFile.exists()) {
         if (!modeFile.open(QIODevice::ReadOnly | QIODevice::Text))
-            return MODE_BALANCED;
+            return rc;
 
         QByteArray line = modeFile.readLine();
         rc = line.toInt(&ok, 10);
     }
 
     if (rc > MODE_PERFORMANCE || rc < MODE_POWERSAVE)
-        rc = MODE_INVALID;
+        rc = MODE_BALANCED;
 
     return rc;
 }
