@@ -21,4 +21,5 @@ find_package(Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 
 add_subdirectory(src)
+add_subdirectory(systemd)
 add_subdirectory(ts)
