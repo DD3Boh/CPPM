@@ -9,7 +9,9 @@
 echo "Building and installing CPPM..."
 echo " "
 
-cmake -DCMAKE_BUILD_TYPE=Release -S ./ -B out/
+if [[ ! -d out/ ]]; then
+	cmake -DCMAKE_BUILD_TYPE=Release -S ./ -B out/
+fi
 sudo cmake --build out/ --target install
 
 echo "Creating system files..."
