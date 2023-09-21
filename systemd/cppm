@@ -6,9 +6,9 @@
 #  SPDX-License-Identifier: LGPL-2.1-or-later
 #
 
-if [[ -f /opt/cppm/mode ]]; then
-	mode=$(cat /opt/cppm/mode)
-else
+mode=$(cat /opt/cppm/mode)
+
+if [[ ! -s /opt/cppm/mode ]]; then
 	mode="2"
 fi
 
