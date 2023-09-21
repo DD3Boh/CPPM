@@ -19,18 +19,18 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
 )
 
-add_definitions(-DTRANSLATION_DOMAIN=\"plasma_applet_plasma.custom.powermodes\")
+add_definitions(-DTRANSLATION_DOMAIN=\"plasma_applet_org.dd3boh.cppm\")
 
-plasma_install_package(package plasma.custom.powermodes)
+plasma_install_package(package org.dd3boh.cppm)
 
-set(powermodes_SRCS
+set(plasmaPowermodes_SRCS
     plasmaPowermodes.cpp
     plasmaPowermodes.h
 )
 
-kcoreaddons_add_plugin(plasma.custom.powermodes SOURCES ${powermodes_SRCS} INSTALL_NAMESPACE "plasma/applets")
+kcoreaddons_add_plugin(org.dd3boh.cppm SOURCES ${plasmaPowermodes_SRCS} INSTALL_NAMESPACE "plasma/applets")
 
-target_link_libraries(plasma.custom.powermodes
+target_link_libraries(org.dd3boh.cppm
                       Qt5::Gui
                       KF5::Plasma
                       KF5::I18n

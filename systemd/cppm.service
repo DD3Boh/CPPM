@@ -1,0 +1,11 @@
+[Unit]
+Description=Custom Power Profiles Manager service
+
+[Service]
+ExecStart=/usr/lib/systemd/scripts/cppm
+User=root
+Group=root
+
+[Install]
+Also=cppm.path
+WantedBy=multi-user.target

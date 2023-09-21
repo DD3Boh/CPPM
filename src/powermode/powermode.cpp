@@ -7,7 +7,7 @@
 #include "powermode.h"
 #include <QFile>
 
-#define filePath "/opt/powermodes/mode"
+#define filePath "/opt/cppm/mode"
 
 enum {
     MODE_INVALID = 0,

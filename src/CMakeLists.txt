@@ -9,22 +9,22 @@ add_subdirectory(app)
 add_subdirectory(plasma)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(powermodes
+    qt_add_executable(cppm
         MANUAL_FINALIZATION
     )
 else()
-    add_executable(powermodes)
+    add_executable(cppm)
 endif()
 
-target_link_libraries(powermodes PRIVATE mainapp powermode)
+target_link_libraries(cppm PRIVATE mainapp powermode)
 
 include(GNUInstallDirs)
-install(TARGETS powermodes
+install(TARGETS cppm
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(powermodes)
+    qt_finalize_executable(cppm)
 endif()

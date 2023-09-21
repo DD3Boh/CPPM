@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for changes in CPPM
+
+[Path]
+PathChanged=/opt/cppm/mode
+
+[Install]
+WantedBy=multi-user.target

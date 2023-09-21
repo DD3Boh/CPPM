@@ -8,15 +8,15 @@
             }
         ],
         "Category": "System Information",
-        "Description": "Custom made power profiles switcher",
-        "Icon": "battery-full",
-        "Id": "plasma.custom.powermodes",
+        "Description": "Custom Power Profiles Manager",
+        "Icon": "speedometer",
+        "Id": "org.dd3boh.cppm",
         "License": "LGPL-2.1+",
-        "Name": "powermodes",
+        "Name": "Power Profiles",
         "Version": "1.0",
-        "Website": "https://plasma.kde.org/"
+        "Website": "https://github.com/DD3Boh/CPPM"
     },
-    "X-KDE-Keywords": "Power,powermodes,powerprofiles",
+    "X-KDE-Keywords": "Power,powermodes,powerprofiles,CPPM",
     "X-Plasma-API": "declarativeappletscript",
     "X-Plasma-MainScript": "ui/main.qml",
     "X-Plasma-NotificationArea": "true",

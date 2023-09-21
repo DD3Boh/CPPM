@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ -f /opt/powermodes/mode ]]; then
-	mode=$(cat /opt/powermodes/mode)
+if [[ -f /opt/cppm/mode ]]; then
+	mode=$(cat /opt/cppm/mode)
 else
 	mode="2"
 fi
