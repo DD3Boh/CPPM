@@ -18,7 +18,6 @@ echo "Uninstalling CPPM..."
 sudo systemctl stop cppm.service cppm.path
 sudo systemctl disable cppm
 
-cmake -DCMAKE_BUILD_TYPE=Release -S ./ -B out/
 sudo cmake --build out/ --target uninstall
 
 echo " "
