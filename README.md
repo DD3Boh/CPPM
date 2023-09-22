@@ -2,6 +2,26 @@
 
 Custom Power Profiles Manager (CPPM) - Qt based GUI program to handle user made power profiles
 
+## Install from prebuilt
+To install the package from prebuilt, all you need to do is download the desired package from the release page.
+
+After that run:
+
+```
+$ curl -sSL https://raw.githubusercontent.com/DD3Boh/CPPM/master/install.sh | bash -s <packagePath>
+```
+
+After this, everything should be installed properly.
+
+## Uninstall from prebuilt
+If you installed from the prebuilt package, like instructed above, and you want to remove the program, just run:
+
+```
+$ curl -sSL https://raw.githubusercontent.com/DD3Boh/CPPM/master/uninstall.sh | bash -s <packagePath>
+```
+
+The package should be the same used for the installation, as it is needed to obtain the installed files list.
+
 ## Install from source
 Run the install script:
 
