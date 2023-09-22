@@ -15,10 +15,9 @@ fi
 sudo cmake --build out/ --target install
 
 echo "Creating system files..."
-if [ ! -d /opt/cppm ]; then
-	sudo mkdir -m 777 /opt/cppm
+if [ ! -s /opt/cppm/mode ]; then
+	sudo install -D -m 666 /dev/null /opt/cppm/mode
 fi
-install -m 666 /dev/null /opt/cppm/mode
 
 if [ ! -d "/usr/share/cppm/" ]; then
 	sudo mkdir "/usr/share/cppm/"

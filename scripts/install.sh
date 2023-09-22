@@ -18,12 +18,8 @@ fi
 sudo tar -xzvf "$1" --strip-components=1 -C /usr
 
 echo "Creating system files..."
-if [ ! -d /opt/cppm ]; then
-	sudo mkdir -m 777 /opt/cppm
-fi
-
 if [ ! -s /opt/cppm/mode ]; then
-	install -m 666 /dev/null /opt/cppm/mode
+	sudo install -D -m 666 /dev/null /opt/cppm/mode
 fi
 
 if [ ! -d "/usr/share/cppm/" ]; then
