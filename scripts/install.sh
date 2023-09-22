@@ -15,7 +15,7 @@ echo "Installing packages..."
 if [ ! -d extract ]; then
 	mkdir extract
 fi
-sudo tar -xzvf "$1" --strip-components=1 -C /usr
+sudo tar -xzvf "$1" --strip-components=1 -C /
 
 echo "Creating system files..."
 if [ ! -s /opt/cppm/mode ]; then

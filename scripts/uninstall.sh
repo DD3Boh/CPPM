@@ -25,7 +25,7 @@ sudo systemctl stop cppm.service cppm.path
 sudo systemctl disable cppm
 
 echo "Uninstalling..."
-sudo rm -v $(tar -tf "$1" | grep -v '/$' | sed 's|^[^/]*/|/usr/|')
+sudo rm -v $(tar -tf "$1" | grep -v '/$' | sed 's|^[^/]*/|/|')
 
 echo " "
 echo "Uninstall finished!"
