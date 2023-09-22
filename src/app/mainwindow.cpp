@@ -16,6 +16,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->horizontalSlider->setSliderPosition(powermode.getPowerMode());
 
     connect(ui->horizontalSlider, &QAbstractSlider::valueChanged, &powermode, &PowerMode::setPowerMode);
+
+    this->move(QCursor::pos());
+    this->setWindowFlag(Qt::FramelessWindowHint);
 }
 
 MainWindow::~MainWindow()
