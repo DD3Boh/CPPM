@@ -26,6 +26,10 @@ if [ ! -s /opt/cppm/mode ]; then
 	install -m 666 /dev/null /opt/cppm/mode
 fi
 
+if [ ! -d "/usr/share/cppm/" ]; then
+	sudo mkdir "/usr/share/cppm/"
+fi
+
 echo " "
 echo "Installation finished!"
 echo " "

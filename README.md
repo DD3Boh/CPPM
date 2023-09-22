@@ -53,7 +53,13 @@ The systemd entries will be automatically stopped and disabled, and the profile 
 ## Edit profiles
 By default the profiles simply change the governors for all the cpus, by writing to the cpufreq nodes.
 
-To change the profiles behavior, just change the entries in `systemd/cppm` and run the installation script once again.
+To change the profiles behavior, just edit the `/usr/share/cppm/user` file. The folder is empty by default, but you can take `systemd/cppm` as an example.
+
+When the user file is empty or non existent, the script in `/usr/lib/systemd/scripts/cppm` gets loaded instead.
+
+Be sure to set the correct permissions for the file, which ideally should be 755.
+
+**DO NOT SET WRITE PERMISSIONS FOR ANYONE BUT ROOT, IF YOU DO ANY USER COULD SET ANY COMMAND TO BE RUN AS ROOT**
 
 Inside the `cppm` script, the values are set inside a case, with values being:
 

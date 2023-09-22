@@ -13,6 +13,10 @@ if [ -d /opt/cppm ]; then
 	sudo rm -rf /opt/cppm
 fi
 
+if [ -d "/usr/share/cppm/" ]; then
+	sudo rm -rf "/usr/share/cppm/"
+fi
+
 echo "Resetting Power profile to balanced..."
 sudo systemctl start cppm.service
 

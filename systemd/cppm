@@ -6,6 +6,11 @@
 #  SPDX-License-Identifier: LGPL-2.1-or-later
 #
 
+if [ -s "/usr/share/cppm/user" ]; then
+	/usr/share/cppm/user
+	exit 0
+fi
+
 mode=$(cat /opt/cppm/mode)
 
 if [[ ! -s /opt/cppm/mode ]]; then
