@@ -24,6 +24,7 @@ public:
 
 private slots:
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
+    void minimizeWindow(Qt::ApplicationState state);
 
 private:
     Ui::MainWindow *ui;

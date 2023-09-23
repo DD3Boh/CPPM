@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::iconActivated);
     connect(ui->horizontalSlider, &QAbstractSlider::valueChanged, &powermode, &PowerMode::setPowerMode);
+    connect(qApp, &QGuiApplication::applicationStateChanged, this, &MainWindow::minimizeWindow);
 
     trayIcon->show();
 
@@ -49,6 +50,12 @@ void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason)
         this->show();
         this->move(QCursor::pos());
     } else
+        this->hide();
+}
+
+void MainWindow::minimizeWindow(Qt::ApplicationState state)
+{
+    if (state == Qt::ApplicationInactive)
         this->hide();
 }
 
