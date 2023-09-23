@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::iconActivated);
     connect(ui->horizontalSlider, &QAbstractSlider::valueChanged, &powermode, &PowerMode::setPowerMode);
 
+    this->setWindowIcon(icon);
     trayIcon->show();
 
     this->move(QCursor::pos());
@@ -65,5 +66,6 @@ void MainWindow::createTrayIcon()
     trayIconMenu->addAction(quitAction);
 
     trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setIcon(icon);
     trayIcon->setContextMenu(trayIconMenu);
 }
