@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include <QSystemTrayIcon>
 #include "powermode.h"
 
 QT_BEGIN_NAMESPACE
@@ -21,7 +22,17 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void iconActivated(QSystemTrayIcon::ActivationReason reason);
+
 private:
     Ui::MainWindow *ui;
     PowerMode powermode;
+
+    void createTrayIcon();
+    QAction *minimizeAction;
+    QAction *quitAction;
+
+    QSystemTrayIcon *trayIcon;
+    QMenu *trayIconMenu;
 };
