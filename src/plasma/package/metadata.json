@@ -12,7 +12,7 @@
         "Icon": "speedometer",
         "Id": "org.dd3boh.cppm",
         "License": "LGPL-2.1+",
-        "Name": "Power Profiles",
+        "Name": "CPPM",
         "Version": "1.0",
         "Website": "https://github.com/DD3Boh/CPPM"
     },
