@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     trayIcon->show();
 
     this->move(QCursor::pos());
+    this->setWindowFlag(Qt::Tool);
     this->setWindowFlag(Qt::FramelessWindowHint);
     this->setWindowIcon(QIcon::fromTheme("speedometer"));
 
