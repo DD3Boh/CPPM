@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->move(QCursor::pos());
     this->setWindowFlag(Qt::FramelessWindowHint);
+    this->setWindowIcon(QIcon::fromTheme("speedometer"));
 
     QMessageBox::information(this, tr("Custom Power Profiles Manager"),
                                 tr("The program will keep running in the "
@@ -65,5 +66,6 @@ void MainWindow::createTrayIcon()
     trayIconMenu->addAction(quitAction);
 
     trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setIcon(QIcon::fromTheme("speedometer"));
     trayIcon->setContextMenu(trayIconMenu);
 }
