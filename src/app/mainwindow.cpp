@@ -50,6 +50,7 @@ void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason)
     if (!this->isVisible()) {
         this->show();
         this->move(QCursor::pos());
+        this->activateWindow();
     } else
         this->hide();
 }
