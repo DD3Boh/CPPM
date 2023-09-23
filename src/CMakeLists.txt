@@ -8,14 +8,12 @@ add_subdirectory(powermode)
 add_subdirectory(app)
 add_subdirectory(plasma)
 
-qt_add_resources(RESOURCES icons.qrc)
-
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(cppm
         MANUAL_FINALIZATION
     )
 else()
-    add_executable(cppm ${RESOURCES})
+    add_executable(cppm)
 endif()
 
 target_link_libraries(cppm PRIVATE mainapp powermode)

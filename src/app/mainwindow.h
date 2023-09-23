@@ -35,6 +35,4 @@ private:
 
     QSystemTrayIcon *trayIcon;
     QMenu *trayIconMenu;
-
-    QIcon icon = QIcon(":/images/icon.png");
 };
