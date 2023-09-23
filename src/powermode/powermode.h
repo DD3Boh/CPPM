@@ -17,4 +17,5 @@ public:
     PowerMode() { };
     int getPowerMode();
     void setPowerMode(int value);
+    QString getModeString(int value);
 };

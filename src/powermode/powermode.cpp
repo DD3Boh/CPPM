@@ -15,6 +15,30 @@ enum {
     MODE_PERFORMANCE
 };
 
+QString PowerMode::getModeString(int value)
+{
+    QString profile;
+
+    switch (value) {
+    case MODE_POWERSAVE:
+        profile = QString("Powersave");
+        break;
+
+    case MODE_BALANCED:
+        profile = QString("Balanced");
+        break;
+
+    case MODE_PERFORMANCE:
+        profile = QString("Performance");
+        break;
+
+    default:
+        break;
+    }
+
+    return profile;
+}
+
 void PowerMode::setPowerMode(int value)
 {
     QFile modeFile = QFile(filePath);

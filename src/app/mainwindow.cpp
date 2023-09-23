@@ -18,12 +18,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    sliderVal = powermode.getPowerMode();
     createTrayIcon();
 
-    ui->horizontalSlider->setSliderPosition(powermode.getPowerMode());
+    ui->horizontalSlider->setSliderPosition(sliderVal);
 
     connect(trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::iconActivated);
-    connect(ui->horizontalSlider, &QAbstractSlider::valueChanged, &powermode, &PowerMode::setPowerMode);
+    connect(ui->horizontalSlider, &QAbstractSlider::valueChanged, this, &MainWindow::sliderChanged);
     connect(qApp, &QGuiApplication::applicationStateChanged, this, &MainWindow::minimizeWindow);
 
     trayIcon->show();
@@ -61,6 +62,16 @@ void MainWindow::minimizeWindow(Qt::ApplicationState state)
         this->hide();
 }
 
+void MainWindow::sliderChanged(int value)
+{
+    sliderVal = value;
+
+    powermode.setPowerMode(sliderVal);
+
+    trayIcon->setToolTip(QString("CPPM profile: %1")
+                        .arg(powermode.getModeString(sliderVal)));
+}
+
 void MainWindow::createTrayIcon()
 {
     minimizeAction = new QAction(tr("Mi&nimize"), this);
@@ -77,4 +88,6 @@ void MainWindow::createTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setIcon(QIcon::fromTheme("speedometer"));
     trayIcon->setContextMenu(trayIconMenu);
+    trayIcon->setToolTip(QString("CPPM profile: %1")
+                        .arg(powermode.getModeString(sliderVal)));
 }

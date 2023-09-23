@@ -25,10 +25,13 @@ public:
 private slots:
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
     void minimizeWindow(Qt::ApplicationState state);
+    void sliderChanged(int value);
 
 private:
     Ui::MainWindow *ui;
     PowerMode powermode;
+
+    int sliderVal;
 
     void createTrayIcon();
     QAction *minimizeAction;
