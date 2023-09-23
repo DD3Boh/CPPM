@@ -27,8 +27,13 @@ Item {
             }
         }
 
+        Item {
+            height: 10
+        }
+
         RowLayout {
-            Layout.rightMargin: 40
+            Layout.leftMargin: 10
+            Layout.rightMargin: 35
             PlasmaCore.IconItem {
                 source: "speedometer"
                 Layout.alignment: Qt.AlignTop
@@ -37,7 +42,7 @@ Item {
             }
 
             Item {
-                width: 10
+                width: 5
             }
 
             PlasmaComponents3.Slider {
@@ -55,7 +60,7 @@ Item {
 
         RowLayout {
             Layout.leftMargin: 40
-            Layout.rightMargin: 20
+            Layout.rightMargin: 10
 
             PlasmaComponents3.Label {
                 id: powersaveLevel
