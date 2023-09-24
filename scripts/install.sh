@@ -12,9 +12,6 @@ echo "Installing CPPM..."
 echo " "
 
 echo "Installing packages..."
-if [ ! -d extract ]; then
-	mkdir extract
-fi
 sudo tar -xzvf "$1" --strip-components=1 -C /
 
 echo " "
