@@ -50,9 +50,7 @@ target_link_libraries(org.dd3boh.cppm
 
 # CPack
 set(CPACK_PACKAGE_NAME "CPPM-Plasma")
-set(CPACK_PACKAGE_DESCRIPTION "Custom Power Profiles Manager Plasmoid")
-
-set(CPACK_RPM_PACKAGE_NAME "CPPM-Plasma")
-set(CPACK_RPM_PACKAGE_DESCRIPTION "Custom Power Profiles Manager Plasmoid")
+set(CPACK_PACKAGE_DESCRIPTION "Custom Power Profiles Manager - Plasmoid version")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Custom Power Profiles Manager (Plasma)")
 
 include(CPack)

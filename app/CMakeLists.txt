@@ -44,8 +44,6 @@ endif()
 # CPack
 set(CPACK_PACKAGE_NAME "CPPM")
 set(CPACK_PACKAGE_DESCRIPTION "Custom Power Profiles Manager (CPPM)")
-
-set(CPACK_RPM_PACKAGE_NAME "CPPM")
-set(CPACK_RPM_PACKAGE_DESCRIPTION "Custom Power Profiles Manager (CPPM)")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Custom Power Profiles Manager")
 
 include(CPack)
