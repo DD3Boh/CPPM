@@ -1,6 +1,10 @@
 # CPPM - Custom Power Profiles Manager
 
-Custom Power Profiles Manager (CPPM) - Qt based GUI program to handle user made power profiles
+Custom Power Profiles Manager (CPPM) - Qt based GUI program to handle user made power profiles.
+
+This program comes in two versions:
+* Standard application: works on most desktop enviroments with a system tray icon and a popup style slider menu
+* Plasmoid: works only on KDE Plasma, but it provides an interface as close as possible to the native style
 
 ## Install from prebuilt
 To install the package from prebuilt, all you need to do is download the desired package from the release page.
@@ -26,8 +30,12 @@ The package should be the same used for the installation, as it is needed to obt
 Run the install script:
 
 ```
-$ ./scripts/build-install.sh
+$ ./scripts/build-install.sh <target>
 ```
+
+target can be:
+* `app`: Build the regular application, works on most desktops
+* `plasmoid`: Build the plasmoid extension for KDE Plasma
 
 Enable the systemd entry:
 
@@ -45,8 +53,12 @@ $ systemctl start cppm.service cppm.path
 Run the uninstall script:
 
 ```
-$ ./scripts/build-uninstall.sh
+$ ./scripts/build-uninstall.sh <target>
 ```
+
+target can be:
+* `app`: Build the regular application, works on most desktops
+* `plasmoid`: Build the plasmoid extension for KDE Plasma
 
 The systemd entries will be automatically stopped and disabled, and the profile will be re-set to balanced.
 

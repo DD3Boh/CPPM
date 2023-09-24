@@ -6,6 +6,19 @@
 #  SPDX-License-Identifier: LGPL-2.1-or-later
 #
 
+target="${1}"
+
+case "$target" in
+  "app")
+    ;;
+  "plasmoid")
+    ;;
+  *)
+    echo "Invalid target!"
+    exit 1
+    ;;
+esac
+
 echo "Removing system files..."
 if [ -d /opt/cppm ]; then
 	sudo rm -rf /opt/cppm
@@ -22,7 +35,7 @@ echo "Uninstalling CPPM..."
 sudo systemctl stop cppm.service cppm.path
 sudo systemctl disable cppm
 
-sudo cmake --build out/ --target uninstall
+sudo cmake --build "out/$target" --target uninstall
 
 echo " "
 echo "Uninstall finished!"

@@ -15,17 +15,46 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
+find_package(QT NAMES Qt5)
 find_package(Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 
-add_subdirectory(src)
-add_subdirectory(systemd)
+add_subdirectory(common)
+
 add_subdirectory(ts)
 
 install(DIRECTORY DESTINATION share/cppm/)
 install(DIRECTORY DESTINATION /opt/cppm/)
+
+set(PROJECT_SOURCES
+        main.cpp
+        mainwindow.cpp
+        mainwindow.h
+        mainwindow.ui
+)
+
+if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+    qt_add_executable(cppm
+        MANUAL_FINALIZATION
+        ${PROJECT_SOURCES}
+    )
+else()
+    add_executable(cppm ${PROJECT_SOURCES})
+endif()
+
+target_link_libraries(cppm PRIVATE powermode Qt${QT_VERSION_MAJOR}::Widgets)
+
+include(GNUInstallDirs)
+install(TARGETS cppm
+    BUNDLE DESTINATION .
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
+
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt_finalize_executable(cppm)
+endif()
 
 # CPack
 set(CPACK_GENERATOR "TGZ;DEB;RPM")
@@ -34,7 +63,7 @@ set(CPACK_PACKAGE_VERSION "0.1")
 set(CPACK_PACKAGE_VENDOR "DD3Boh")
 set(CPACK_PACKAGE_DESCRIPTION "Custom Power Profiles Manager (CPPM)")
 set(CPACK_PACKAGE_CONTACT "dade.garberi@gmail.com")
-set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/../LICENSE")
 set(CPACK_SET_DESTDIR ON)
 
 set(CPACK_RPM_PACKAGE_NAME "CPPM")
