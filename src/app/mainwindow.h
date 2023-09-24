@@ -34,7 +34,6 @@ private:
     int sliderVal;
 
     void createTrayIcon();
-    QAction *minimizeAction;
     QAction *quitAction;
 
     QSystemTrayIcon *trayIcon;
