@@ -17,15 +17,6 @@ if [ ! -d extract ]; then
 fi
 sudo tar -xzvf "$1" --strip-components=1 -C /
 
-echo "Creating system files..."
-if [ ! -s /opt/cppm/mode ]; then
-	sudo install -D -m 666 /dev/null /opt/cppm/mode
-fi
-
-if [ ! -d "/usr/share/cppm/" ]; then
-	sudo mkdir "/usr/share/cppm/"
-fi
-
 echo " "
 echo "Installation finished!"
 echo " "

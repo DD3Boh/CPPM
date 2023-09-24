@@ -11,12 +11,14 @@ if [ -s "/usr/share/cppm/user" ]; then
 	exit 0
 fi
 
-mode=$(cat /opt/cppm/mode)
+if [ ! -s /opt/cppm/mode ]; then
+	echo "2" | install -D -m 666 /dev/stdin /opt/cppm/mode
 
-if [[ ! -s /opt/cppm/mode ]]; then
-	mode="2"
+	# After having written to ths mode file, systemd will trigger another run
+	exit 1
 fi
 
+mode=$(cat /opt/cppm/mode)
 cores=$(nproc --ignore=1)
 
 case "$mode" in

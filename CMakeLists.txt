@@ -24,6 +24,9 @@ add_subdirectory(src)
 add_subdirectory(systemd)
 add_subdirectory(ts)
 
+install(DIRECTORY DESTINATION share/cppm/)
+install(DIRECTORY DESTINATION /opt/cppm/)
+
 # CPack
 set(CPACK_GENERATOR "TGZ")
 set(CPACK_PACKAGE_NAME "CPPM")
