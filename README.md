@@ -1,8 +1,14 @@
 # CPPM - Custom Power Profiles Manager
 
-Custom Power Profiles Manager (CPPM) - Qt based GUI program to handle user made power profiles.
+Qt based GUI program to handle user made power profiles.
 
-This program comes in two versions:
+The profiles can be configured to do anything that a bash script run as root can do.
+
+The backend for writing to files is fully handled by systemd.
+
+The GUI part is made of a simple slider that changes the power profile, without ever needing root permissions thanks to systemd path monitoring.
+
+There are two versions available:
 * Standard application: works on most desktop enviroments with a system tray icon and a popup style slider menu
 * Plasmoid: works only on KDE Plasma, but it provides an interface as close as possible to the native style
 
