@@ -1,0 +1,12 @@
+[Desktop Entry]
+Comment=Qt based GUI program to handle user made power profiles
+Exec=/usr/bin/cppm
+GenericName=Custom Power Profiles Manager
+Icon=speedometer
+MimeType=
+Name=CPPM
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application

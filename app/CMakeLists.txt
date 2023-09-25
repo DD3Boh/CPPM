@@ -10,6 +10,8 @@ project(cppm VERSION 0.1 LANGUAGES CXX)
 
 include(common/common.cmake)
 
+install(FILES common/cppm.desktop DESTINATION share/applications)
+
 add_subdirectory(ts)
 
 set(PROJECT_SOURCES
