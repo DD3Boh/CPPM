@@ -6,6 +6,19 @@ This program comes in two versions:
 * Standard application: works on most desktop enviroments with a system tray icon and a popup style slider menu
 * Plasmoid: works only on KDE Plasma, but it provides an interface as close as possible to the native style
 
+## Pictures
+![](images/app-clear.png)  
+*Regular app - clear theme*
+
+![](images/app-dark.png)  
+*Regular app - dark theme*
+
+![](images/plasmoid-clear.png)  
+*Plasmoid - clear theme*
+
+![](images/plasmoid-dark.png)  
+*Plasmoid - dark theme*
+
 ## Installation
 ### Install from package manager
 Currently the supported packages for package managers are DEB and RPM.
