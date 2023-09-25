@@ -21,6 +21,8 @@ add_subdirectory(common)
 install(DIRECTORY DESTINATION share/cppm/)
 install(DIRECTORY DESTINATION /opt/cppm/)
 
+set(CMAKE_INSTALL_PREFIX "/usr")
+
 # CPack
 set(CPACK_GENERATOR "TGZ;DEB;RPM")
 set(CPACK_PACKAGE_VERSION ${CMAKE_PROJECT_VERSION})
