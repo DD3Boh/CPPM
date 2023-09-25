@@ -6,7 +6,13 @@ This program comes in two versions:
 * Standard application: works on most desktop enviroments with a system tray icon and a popup style slider menu
 * Plasmoid: works only on KDE Plasma, but it provides an interface as close as possible to the native style
 
-## Install from prebuilt
+## Installation
+### Install from package manager
+Currently the supported packages for package managers are DEB and RPM.
+
+For other distributions you can build the package from source or install through the archive file and install script, as shown in the instructions below.
+
+### Install from prebuilt archive
 To install the package from prebuilt, all you need to do is download the desired package from the release page.
 
 After that run:
@@ -17,7 +23,7 @@ $ curl -sSL https://raw.githubusercontent.com/DD3Boh/CPPM/master/install.sh | ba
 
 After this, everything should be installed properly.
 
-## Uninstall from prebuilt
+### Uninstall from prebuilt archive
 If you installed from the prebuilt package, like instructed above, and you want to remove the program, just run:
 
 ```
@@ -26,7 +32,7 @@ $ curl -sSL https://raw.githubusercontent.com/DD3Boh/CPPM/master/uninstall.sh | 
 
 The package should be the same used for the installation, as it is needed to obtain the installed files list.
 
-## Install from source
+### Install from source
 Run the install script:
 
 ```
@@ -49,7 +55,7 @@ If you want to start the service without rebooting, you need to start both the s
 $ systemctl start cppm.service cppm.path
 ```
 
-## Uninstall from source
+### Uninstall from source
 Run the uninstall script:
 
 ```
