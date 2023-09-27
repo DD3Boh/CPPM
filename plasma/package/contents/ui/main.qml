@@ -13,12 +13,18 @@ import org.kde.plasma.components 3.0 as PlasmaComponents3
 Item {
     id: widget
 
+    property int val: 2
+
     Plasmoid.icon: 'speedometer'
+
+    Plasmoid.toolTipMainText: i18n("Custom Power Profiles Manager")
+    Plasmoid.toolTipSubText: {
+        return i18n("Current profile: " + Plasmoid.nativeInterface.getModeString(val))
+    }
 
     Plasmoid.fullRepresentation: ColumnLayout {
         anchors.fill: parent
         spacing: 0
-        property int val: 0
 
         Connections {
             Plasmoid.onExpandedChanged: {
@@ -53,8 +59,10 @@ Item {
                 value: val
                 stepSize: 1
 
-                onMoved:
-                    Plasmoid.nativeInterface.setPowerMode(slider.value)
+                onMoved: {
+                    val = slider.value
+                    Plasmoid.nativeInterface.setPowerMode(val)
+                }
             }
         }
 

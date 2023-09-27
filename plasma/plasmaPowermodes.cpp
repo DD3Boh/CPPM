@@ -27,6 +27,11 @@ void plasmaPowermodes::setPowerMode(int value)
     powermode.setPowerMode(value);
 }
 
+QString plasmaPowermodes::getModeString(int value)
+{
+    return powermode.getModeString(value);
+}
+
 K_PLUGIN_CLASS(plasmaPowermodes)
 
 #include "plasmaPowermodes.moc"

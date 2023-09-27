@@ -18,6 +18,7 @@ public:
     ~plasmaPowermodes();
     Q_INVOKABLE int getPowerMode();
     Q_INVOKABLE void setPowerMode(int value);
+    Q_INVOKABLE QString getModeString(int value);
 
 private:
     PowerMode powermode;
