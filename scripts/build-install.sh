@@ -11,7 +11,7 @@ target="${1}"
 case "$target" in
   "app")
     ;;
-  "plasmoid")
+  "plasma")
     ;;
   *)
     echo "Invalid target!"
@@ -22,8 +22,8 @@ esac
 echo "Building and installing CPPM..."
 echo " "
 
-if [[ ! -d out/ ]]; then
-	cmake -DCMAKE_BUILD_TYPE=Release -S "$target" -B "out/$target"
+if [[ ! -d "out/$target" ]]; then
+  cmake -DCMAKE_BUILD_TYPE=Release -S "$target" -B "out/$target"
 fi
 sudo cmake --build "out/$target" --target install
 

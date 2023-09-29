@@ -11,7 +11,7 @@ target="${1}"
 case "$target" in
   "app")
     ;;
-  "plasmoid")
+  "plasma")
     ;;
   *)
     echo "Invalid target!"
