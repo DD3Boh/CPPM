@@ -9,27 +9,28 @@ import QtQuick.Layouts 1.15
 import org.kde.plasma.core 2.1 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.components 3.0 as PlasmaComponents3
+import org.kde.kirigami 2.20 as Kirigami
 
-Item {
+PlasmoidItem {
     id: widget
 
     property int val: 2
 
     Plasmoid.icon: 'speedometer'
 
-    Plasmoid.toolTipMainText: i18n("Custom Power Profiles Manager")
-    Plasmoid.toolTipSubText: {
-        return i18n("Current profile: " + Plasmoid.nativeInterface.getModeString(val))
+    toolTipMainText: i18n("Custom Power Profiles Manager")
+    toolTipSubText: {
+        return i18n("Current profile: " + Plasmoid.getModeString(val))
     }
 
-    Plasmoid.fullRepresentation: ColumnLayout {
+    fullRepresentation: ColumnLayout {
         anchors.fill: parent
         spacing: 0
 
         Connections {
-            Plasmoid.onExpandedChanged: {
+            onExpandedChanged: {
                 if (Plasmoid.expanded)
-                    val = Plasmoid.nativeInterface.getPowerMode()
+                    val = Plasmoid.getPowerMode()
             }
         }
 
@@ -40,11 +41,11 @@ Item {
         RowLayout {
             Layout.leftMargin: 10
             Layout.rightMargin: 35
-            PlasmaCore.IconItem {
+            Kirigami.Icon {
                 source: "speedometer"
                 Layout.alignment: Qt.AlignTop
-                Layout.preferredWidth: PlasmaCore.Units.iconSizes.medium
-                Layout.preferredHeight: PlasmaCore.Units.iconSizes.medium
+                Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                Layout.preferredHeight: Kirigami.Units.iconSizes.medium
             }
 
             Item {
@@ -61,7 +62,7 @@ Item {
 
                 onMoved: {
                     val = slider.value
-                    Plasmoid.nativeInterface.setPowerMode(val)
+                    Plasmoid.setPowerMode(val)
                 }
             }
         }
