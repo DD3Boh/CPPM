@@ -21,16 +21,12 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(cppm
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-    )
-else()
-    add_executable(cppm ${PROJECT_SOURCES})
-endif()
+qt_add_executable(cppm
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+)
 
-target_link_libraries(cppm PRIVATE powermode Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(cppm PRIVATE powermode Qt6::Widgets)
 
 include(GNUInstallDirs)
 install(TARGETS cppm
@@ -39,9 +35,7 @@ install(TARGETS cppm
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(cppm)
-endif()
+qt_finalize_executable(cppm)
 
 # CPack
 set(CPACK_PACKAGE_NAME "CPPM")

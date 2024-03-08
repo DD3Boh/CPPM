@@ -11,6 +11,6 @@ set(PROJECT_SOURCES
 
 add_library(powermode STATIC ${PROJECT_SOURCES})
 
-target_link_libraries(powermode PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(powermode PRIVATE Qt6::Widgets)
 
 target_include_directories(powermode PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
