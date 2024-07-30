@@ -23,16 +23,14 @@ PlasmoidItem {
         return i18n("Current profile: " + Plasmoid.getModeString(val))
     }
 
+    onExpandedChanged: expanded => {
+        if (expanded)
+            val = Plasmoid.getPowerMode()
+    }
+
     fullRepresentation: ColumnLayout {
         anchors.fill: parent
         spacing: 0
-
-        Connections {
-            onExpandedChanged: {
-                if (Plasmoid.expanded)
-                    val = Plasmoid.getPowerMode()
-            }
-        }
 
         Item {
             height: 10
