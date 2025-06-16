@@ -1,45 +1,77 @@
 #!/bin/bash
 
 #
-#  SPDX-FileCopyrightText 2023 Davide Garberi <dade.garberi@gmail.com>
+#  SPDX-FileCopyrightText 2023, 2025 Davide Garberi <dade.garberi@gmail.com>
 #
 #  SPDX-License-Identifier: LGPL-2.1-or-later
 #
 
-if [ ! -s /opt/cppm/mode ]; then
-	echo "2" | install -D -m 666 /dev/stdin /opt/cppm/mode
+# Function to set the online state of a CPU core with a retry mechanism.
+# Arguments:
+#   $1: The desired state ("0" for offline, "1" for online).
+#   $2: The CPU core number.
+set_cpu_state() {
+    local state="$1"
+    local core_num="$2"
+    local online_file="/sys/devices/system/cpu/cpu${core_num}/online"
+    local max_retries=10
+    local retry_delay=5
 
-	# After having written to ths mode file, systemd will trigger another run
-	exit 1
+    # Check if the sysfs file exists and is writable
+    if [ ! -w "$online_file" ]; then
+        echo "Error: Cannot write to $online_file. Are you running as root?"
+        return 1
+    fi
+
+    # Loop retry writing to the file
+    for ((i=1; i <= max_retries; i++)); do
+        if echo "$state" > "$online_file" 2>/dev/null; then
+            return 0
+        else
+            sleep "$retry_delay"
+        fi
+    done
+
+    return 1 # Failure
+}
+
+if [ ! -s /opt/cppm/mode ]; then
+    echo "2" | install -D -m 666 /dev/stdin /opt/cppm/mode
+
+    # After having written to the mode file, systemd will trigger another run
+    exit 1
 fi
 
 mode=$(cat /opt/cppm/mode)
 
 case "$mode" in
-	"1")
-		echo "0" > "/sys/devices/system/cpu/cpu4/online"
-		echo "0" > "/sys/devices/system/cpu/cpu5/online"
-		cores=$(nproc --ignore=1)
-		for ((i = 0; i <= $cores; i++)); do
-		echo "powersave" > "/sys/devices/system/cpu/cpufreq/policy$i/scaling_governor"
-		done
-		;;
+    "1")
+        set_cpu_state "0" "4"
+        set_cpu_state "0" "5"
 
-	"2")
-		echo "1" > "/sys/devices/system/cpu/cpu4/online"
-		echo "1" > "/sys/devices/system/cpu/cpu5/online"
-		cores=$(nproc --ignore=1)
-		for ((i = 0; i <= $cores; i++)); do
-		echo "schedutil" > "/sys/devices/system/cpu/cpufreq/policy$i/scaling_governor"
-		done
-		;;
+        cores=$(nproc --ignore=1)
+        for ((i = 0; i <= $cores; i++)); do
+            echo "powersave" > "/sys/devices/system/cpu/cpufreq/policy$i/scaling_governor"
+        done
+        ;;
 
-	"3")
-		echo "1" > "/sys/devices/system/cpu/cpu4/online"
-		echo "1" > "/sys/devices/system/cpu/cpu5/online"
-		cores=$(nproc --ignore=1)
-		for ((i = 0; i <= $cores; i++)); do
-		echo "performance" > "/sys/devices/system/cpu/cpufreq/policy$i/scaling_governor"
-		done
-		;;
+    "2")
+        set_cpu_state "1" "4"
+        set_cpu_state "1" "5"
+
+        cores=$(nproc --ignore=1)
+        for ((i = 0; i <= $cores; i++)); do
+            echo "schedutil" > "/sys/devices/system/cpu/cpufreq/policy$i/scaling_governor"
+        done
+        ;;
+
+    "3")
+        set_cpu_state "1" "4"
+        set_cpu_state "1" "5"
+
+        cores=$(nproc --ignore=1)
+        for ((i = 0; i <= $cores; i++)); do
+            echo "performance" > "/sys/devices/system/cpu/cpufreq/policy$i/scaling_governor"
+        done
+        ;;
 esac
